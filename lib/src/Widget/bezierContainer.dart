@@ -15,13 +15,13 @@ class BezierContainer extends StatelessWidget {
         child: ClipPath(
         clipper: ClipPainter(),
         child: Container(
-          height: MediaQuery.of(context).size.height *.5,
+          height: MediaQuery.of(context).size.height *.6,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [Color(0xffefbbff),Color(0xff800080)]
+                colors: [Color(0xffFFFFFF),Color(0xffFFFFFF)]
               )
             ),
         ),

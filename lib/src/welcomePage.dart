@@ -27,7 +27,7 @@ class _WelcomePageState extends State<WelcomePage> {
             borderRadius: BorderRadius.all(Radius.circular(5)),
             boxShadow: <BoxShadow>[
               BoxShadow(
-                  color: Color(0xffd896ff).withAlpha(100),
+                  color: Color(0xff4286F4).withAlpha(100),
                   offset: Offset(2, 4),
                   blurRadius: 8,
                   spreadRadius: 2)
@@ -35,7 +35,7 @@ class _WelcomePageState extends State<WelcomePage> {
             color: Colors.white),
         child: Text(
           'Login',
-          style: TextStyle(fontSize: 20, color: Color(0xffd896ff)),
+          style: TextStyle(fontSize: 20, color: Color(0xff4286F4)),
         ),
       ),
     );
@@ -134,7 +134,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    colors: [Color(0xffefbbff), Color(0xff800080)])),
+                    colors: [Color(0xff7FA4F7), Color(0xff4286F4)])),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,

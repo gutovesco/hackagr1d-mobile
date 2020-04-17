@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:teste_nottest/src/signup.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'Widget/bezierContainer.dart';
-
 class LoginPage extends StatefulWidget {
   LoginPage({Key key, this.title}) : super(key: key);
 
@@ -25,10 +23,10 @@ class _LoginPageState extends State<LoginPage> {
           children: <Widget>[
             Container(
               padding: EdgeInsets.only(left: 0, top: 10, bottom: 10),
-              child: Icon(Icons.keyboard_arrow_left, color: Colors.black),
+              child: Icon(Icons.keyboard_arrow_left, color: Colors.white),
             ),
             Text('Voltar',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Color(0xffFFFFFF))),
           ],
         ),
       ),
@@ -42,18 +40,32 @@ class _LoginPageState extends State<LoginPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
+                    SizedBox(
+            height: 10,
+          ),
+          Center(
+          child: Text(
             title,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Color(0xffFFFFFF)),
+          ),
           ),
           SizedBox(
             height: 10,
           ),
           TextField(
+            textAlign: TextAlign.center,
               obscureText: isPassword,
               decoration: InputDecoration(
-                  border: InputBorder.none,
-                  fillColor: Color(0xfff3f3f4),
+                enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderSide: BorderSide(color: Colors.grey),
+        ),
+                focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderSide: BorderSide(color: Colors.grey),
+        ),
+                hintText: title,
+                  fillColor: Color(0xffffffff),
                   filled: true))
         ],
       ),
@@ -61,26 +73,20 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _submitButton() {
+              
     return Container(
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.symmetric(vertical: 15),
       alignment: Alignment.center,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(5)),
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-                color: Colors.grey.shade200,
-                offset: Offset(2, 4),
-                blurRadius: 5,
-                spreadRadius: 2)
-          ],
           gradient: LinearGradient(
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
-              colors: [Color(0xffefbbff), Color(0xff800080)])),
+              colors: [Color(0xffFFFFFF), Color(0xffFFFFFF)])),
       child: Text(
         'Login',
-        style: TextStyle(fontSize: 20, color: Colors.white),
+        style: TextStyle(fontSize: 20, color: Colors.black),
       ),
     );
   }
@@ -94,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
         children: <Widget>[
           Text(
             'Não tem uma conta ?',
-            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Color(0xffFFFFFF)),
           ),
           SizedBox(
             width: 10,
@@ -107,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Text(
               'Registrar',
               style: TextStyle(
-                  color: Color(0xffd896ff),
+                  color: Colors.black,
                   fontSize: 13,
                   fontWeight: FontWeight.w600),
             ),
@@ -124,29 +130,31 @@ class _LoginPageState extends State<LoginPage> {
           text: 'T',
           style: GoogleFonts.portLligatSans(
             textStyle: Theme.of(context).textTheme.display1,
-            fontSize: 30,
+            fontSize: 40,
             fontWeight: FontWeight.w700,
-            color: Color(0xffd896ff),
+            color: Color(0xffFFFFFF),
           ),
           children: [
             TextSpan(
               text: 'es',
-              style: TextStyle(color: Colors.black, fontSize: 30),
+              style: TextStyle(color: Colors.black, fontSize: 40),
             ),
             TextSpan(
               text: 'te',
-              style: TextStyle(color: Color(0xffd896ff), fontSize: 30),
+              style: TextStyle(color: Color(0xffFFFFFF), fontSize: 40),
             ),
           ]),
     );
   }
 
   Widget _emailPasswordWidget() {
-    return Column(
+    return Center(
+      child: Column(
       children: <Widget>[
         _entryField("Email"),
         _entryField("Senha", isPassword: true),
       ],
+      )
     );
   }
 
@@ -156,6 +164,19 @@ class _LoginPageState extends State<LoginPage> {
       body: SingleChildScrollView(
         child: Container(
             height: MediaQuery.of(context).size.height,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(5)),
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                      color: Colors.grey.shade200,
+                      offset: Offset(2, 4),
+                      blurRadius: 5,
+                      spreadRadius: 2)
+                ],
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Color(0xff7FA4F7), Color(0xff4286F4)])),
             child: Stack(
               children: <Widget>[
                 Container(
@@ -170,11 +191,11 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       _title(),
                       SizedBox(
-                        height: 50,
+                        height: 60,
                       ),
                       _emailPasswordWidget(),
                       SizedBox(
-                        height: 20,
+                        height: 40,
                       ),
                       _submitButton(),
                       Container(
@@ -182,7 +203,7 @@ class _LoginPageState extends State<LoginPage> {
                         alignment: Alignment.centerRight,
                         child: Text('Esqueceu sua senha ?',
                             style:
-                                TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+                                TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xffFFFFFF))),
                       ),
                       Expanded(
                         flex: 2,
@@ -196,10 +217,6 @@ class _LoginPageState extends State<LoginPage> {
                   child: _createAccountLabel(),
                 ),
                 Positioned(top: 40, left: 0, child: _backButton()),
-                Positioned(
-                    top: -MediaQuery.of(context).size.height * .15,
-                    right: -MediaQuery.of(context).size.width * .4,
-                    child: BezierContainer())
               ],
             ),
           )
