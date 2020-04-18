@@ -4,6 +4,7 @@ import 'package:teste_nottest/src/screens/home/components/card_produto/card_1.da
 import 'package:teste_nottest/src/screens/home/components/card_produto/card_2.dart';
 import 'package:teste_nottest/src/screens/home/components/card_produto/card_beneficios/card_beneficio_1.dart';
 import 'package:teste_nottest/src/screens/home/components/card_produto/card_beneficios/card_beneficio_2.dart';
+import 'package:teste_nottest/src/screens/home/components/rewards.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -62,7 +63,11 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   GestureDetector(
-                    child: Card1(), onTap: (){},
+                    child: Card1(),      
+                     onTap: (){
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => BenefitsPage()));
+      },
                   ),
                   GestureDetector(child: Card2(), onTap: (){},),
                   Container(
