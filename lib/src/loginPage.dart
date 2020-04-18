@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teste_nottest/src/screens/home/home.dart';
 import 'package:teste_nottest/src/signup.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -74,7 +75,12 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _submitButton() {
               
-    return Container(
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Home()));
+      },
+      child: Container(
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.symmetric(vertical: 15),
       alignment: Alignment.center,
@@ -88,6 +94,7 @@ class _LoginPageState extends State<LoginPage> {
         'Login',
         style: TextStyle(fontSize: 20, color: Colors.black),
       ),
+    ),
     );
   }
 
