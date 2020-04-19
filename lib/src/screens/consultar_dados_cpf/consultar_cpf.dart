@@ -19,37 +19,45 @@ class _ConsultarCPFState extends State<ConsultarCPF> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Concultar CPF/CNPJ"),
+        title: Text("Consultar CPF/CNPJ"),
         centerTitle: true,
       ),
       body: Container(
         child: Column(
           children: <Widget>[
-            Container(
-              width: double.infinity,
-              height: 50,
-              child: TextField(
-                controller: _controller,
-                decoration: InputDecoration(hintText: "Digite seu CPF ou CNPJ"),
+            Padding(
+              padding: EdgeInsets.all(16),
+                          child: Container(
+                width: double.infinity,
+                height: 60,
+                child: TextField(
+                  maxLength: 11,
+                  controller: _controller,
+                  decoration: InputDecoration(hintText: "Digite seu CPF ou CNPJ"),
+                ),
               ),
             ),
-            RaisedButton(
-              child: Text("Consultar"),
-              onPressed: () async {
-                final response = await http.get(
-                  'HTTPS://gateway.gr1d.io/sandbox/procob/v1/consultas/v2/L0001/${_controller.text}',
-                  headers: {
-                    'Content-type': 'application/json',
-                    'X-Api-Key': 'b3e7c74c-5d76-46ed-9e98-da89ae257c7d',
-                  },
-                );
+            Container(
+              width: double.infinity,
+              child: RaisedButton(
+                color: Colors.blue,
+                child: Text("Consultar", style:  TextStyle(color: Colors.white),),
+                onPressed: () async {
+                  final response = await http.get(
+                    'HTTPS://gateway.gr1d.io/sandbox/procob/v1/consultas/v2/L0001/${_controller.text}',
+                    headers: {
+                      'Content-type': 'application/json',
+                      'X-Api-Key': 'b3e7c74c-5d76-46ed-9e98-da89ae257c7d',
+                    },
+                  );
 
-                print(dados);
+                  print(dados);
 
-                setState(() {
-                  dados = jsonDecode(response.body);
-                });
-              },
+                  setState(() {
+                    dados = jsonDecode(response.body);
+                  });
+                },
+              ),
             ),
             Expanded(child: LayoutBuilder(builder:
                 (BuildContext context, BoxConstraints viewportConstraints) {
@@ -70,74 +78,81 @@ class _ConsultarCPFState extends State<ConsultarCPF> {
   Widget conteudoConsultarCep(BoxConstraints viewportConstraints) {
     if (dados != null) {
       var dadosEncontrado;
-      try{
-       dadosEncontrado = dados["content"]["nome"]["conteudo"];
-      }catch(e){
+      try {
+        dadosEncontrado = dados["content"]["nome"]["conteudo"];
+      } catch (e) {
         dadosEncontrado = null;
       }
 
-      if(dadosEncontrado == null){
+      if (dadosEncontrado == null) {
         return Container(
-          child: Text("Sim, deu bosta, como vc n adivinhou?"),
+          height: viewportConstraints.maxHeight,
+          width: viewportConstraints.maxWidth,
+          child: Center(child: Text("Cpf incorreto!")),
         );
-      }else{
-        return Material(
-        elevation: 3,
-        borderRadius: BorderRadius.all(Radius.circular(20)),
-        child: Padding(
-          padding: EdgeInsets.all(10),
-          child: Container(
-            width: viewportConstraints.maxWidth * 0.9,
-            child: Column(
-              children: <Widget>[
-                Row(
+      } else {
+        return Container(
+          margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                  child: Material(
+            
+            elevation: 3,
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            child: Padding(
+              padding: EdgeInsets.all(10),
+              child: Container(
+                width: viewportConstraints.maxWidth * 0.9,
+                child: Column(
                   children: <Widget>[
-                    Text("Nome: "),
-                    Text(dadosEncontrado["nome"])
+                    Row(
+                      children: <Widget>[
+                        Text("Nome: "),
+                        Text(dadosEncontrado["nome"])
+                      ],
+                    ),
+                    Divider(),
+                    Row(
+                      children: <Widget>[
+                        Text("Tipo documento: "),
+                        Text(dadosEncontrado["tipo_documento"])
+                      ],
+                    ),
+                    Divider(),
+                    Row(
+                      children: <Widget>[
+                        Text("Documento: "),
+                        Text(dadosEncontrado["documento"])
+                      ],
+                    ),
+                    Divider(),
+                    Row(
+                      children: <Widget>[
+                        Text("Data receita: "),
+                        Text(dadosEncontrado["situacao_receita_data"])
+                      ],
+                    ),
+                    Divider(),
+                    Row(
+                      children: <Widget>[
+                        Text("Receita: "),
+                        Text(dadosEncontrado["situacao_receita"])
+                      ],
+                    ),
+                    Divider(),
+                    Row(
+                      children: <Widget>[
+                        Text("Estrangeiro: "),
+                        Text(
+                            dadosEncontrado["estrangeiro"]["estrangeiro"] == "NAO"
+                                ? "Não"
+                                : "Desconhecido")
+                      ],
+                    ),
                   ],
                 ),
-                Divider(),
-                Row(
-                  children: <Widget>[
-                    Text("Tipo documento: "),
-                    Text(dadosEncontrado["tipo_documento"])
-                  ],
-                ),
-                Divider(),
-                Row(
-                  children: <Widget>[
-                    Text("Documento: "),
-                    Text(dadosEncontrado["documento"])
-                  ],
-                ),
-                Divider(),
-                Row(
-                  children: <Widget>[
-                    Text("Data receita: "),
-                    Text(dadosEncontrado["situacao_receita_data"])
-                  ],
-                ),
-                Divider(),
-                Row(
-                  children: <Widget>[
-                    Text("Receita: "),
-                    Text(dadosEncontrado["situacao_receita"])
-                  ],
-                ),
-                Divider(),
-                Row(
-                  children: <Widget>[
-                    Text("Estrangeiro: "),
-                    Text(dadosEncontrado["estrangeiro"]["estrangeiro"] == "NAO"
-                        ? "Não"
-                        : "Desconhecido")
-                  ],
-                ),
-              ],
+              ),
             ),
           ),
-        ),
-      );
+        );
       }
     } else {
       return Container(
