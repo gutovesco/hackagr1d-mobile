@@ -44,8 +44,7 @@ flutter:
   uses-material-design: true
  
   assets:
-    - assets/
-    - assets/1.png
+      - 1.png
 
   fonts:
     - family: Rubik

@@ -70,15 +70,10 @@ class MapScreenState extends State<ProfilePage>
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             new Container(
-                                width: 30.0,
-                                height: 30.0,
-                                decoration: new BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  image: new DecorationImage(
-                                    image: new AssetImage(
-                                        '1.png'),
-                                    fit: BoxFit.cover,
-                                  ),
+                                width: 150,
+                                height: 150,
+                                child: new CircleAvatar(
+                                  backgroundImage: AssetImage('1.png'),
                                 )),
                           ],
                         ),

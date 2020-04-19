@@ -48,65 +48,67 @@ class _InformationPageState extends State<InformationPage>
         onNotification: (overscroll) {
           overscroll.disallowGlow();
         },
-        child: SingleChildScrollView(
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height >= 745.0
-                ? MediaQuery.of(context).size.height
-                : 775.0,
-            decoration: new BoxDecoration(
-              gradient: new LinearGradient(
-                  colors: [
-                    Color(0xff7FA4F7), Color(0xff4286F4)
-                  ],
-                  begin: const FractionalOffset(0.0, 0.0),
-                  end: const FractionalOffset(1.0, 1.0),
-                  stops: [0.0, 1.0],
-                  tileMode: TileMode.clamp),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(top: 35.0),
-                ),
-                Center(
-                  child: Text('Benefícios do \n seguro de residência',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: 'Rubik',
-                    fontSize: 24,
-                    color: Colors.white
-                  ),
-                  ),
-                  ),
-                   SizedBox(height: 30),
-                Expanded(
-                  flex: 2,
-                  child: PageView(
-                    controller: _pageController,
-                    onPageChanged: (i) {
-                      if (i == 0) {
-                        setState(() {
-                          right = Colors.white;
-                          left = Colors.black;
-                        });
-                      } else if (i == 1) {
-                        setState(() {
-                          right = Colors.black;
-                          left = Colors.white;
-                        });
-                      }
-                    },
-                    children: <Widget>[
-                     
-                      new Container(
-                        child: _buildSignUp(context),
-                      ),
+        child: SafeArea(
+                  child: SingleChildScrollView(
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height >= 745.0
+                  ? MediaQuery.of(context).size.height
+                  : 775.0,
+              decoration: new BoxDecoration(
+                gradient: new LinearGradient(
+                    colors: [
+                      Color(0xff7FA4F7), Color(0xff4286F4)
                     ],
+                    begin: const FractionalOffset(0.0, 0.0),
+                    end: const FractionalOffset(1.0, 1.0),
+                    stops: [0.0, 1.0],
+                    tileMode: TileMode.clamp),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(top: 35.0),
                   ),
-                ),
-              ],
+                  Center(
+                    child: Text('Benefícios do \n seguro de residência',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: 'Rubik',
+                      fontSize: 24,
+                      color: Colors.white
+                    ),
+                    ),
+                    ),
+                     SizedBox(height: 30),
+                  Expanded(
+                    flex: 2,
+                    child: PageView(
+                      controller: _pageController,
+                      onPageChanged: (i) {
+                        if (i == 0) {
+                          setState(() {
+                            right = Colors.white;
+                            left = Colors.black;
+                          });
+                        } else if (i == 1) {
+                          setState(() {
+                            right = Colors.black;
+                            left = Colors.white;
+                          });
+                        }
+                      },
+                      children: <Widget>[
+                       
+                        new Container(
+                          child: _buildSignUp(context),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

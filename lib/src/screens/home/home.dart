@@ -1,5 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:teste_nottest/src/components/alert_dialog.dart';
 import 'package:teste_nottest/src/screens/consultar_dados_cpf/consultar_cpf.dart';
 import 'package:teste_nottest/src/screens/consultar_dados_placa/consultar_placa.dart';
 import 'package:teste_nottest/src/screens/home/components/card_produto/card_1.dart';
@@ -39,19 +40,34 @@ class _HomeState extends State<Home> {
             color: Colors.white,
           ),
           Icon(
+            Icons.shopping_basket,
+            size: 30,
+            color: Colors.white,
+          ),
+          Icon(
             Icons.person,
             size: 30,
             color: Colors.white,
           ),
         ],
         onTap: (index) {
-          if(index == 2){
-            Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ConsultarCPF()));
+          if (index == 0) {
+            showDialog<void>(
+              context: context,
+              barrierDismissible: false, // user must tap button!
+              builder: (BuildContext context) {
+                return AlertDialogPesquisa();
+              },
+            );
           }
-          if(index == 0){
-            Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ConsultarPlaca()));
+          if (index == 1) {}
+          if (index == 2) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => BenefitsPage()));
+          }
+          if (index == 3) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ProfilePage()));
           }
         },
       ),
@@ -72,17 +88,23 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   GestureDetector(
-                    child: Card1(),      
-                     onTap: (){
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => BenefitsPage()));
-      },
+                    child: Card1(),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => BenefitsPage()));
+                    },
                   ),
-                  GestureDetector(child: Card2(),                      
-                  onTap: (){
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => InformationPage()));
-      },),
+                  GestureDetector(
+                    child: Card2(),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => InformationPage()));
+                    },
+                  ),
                   Container(
                     margin: EdgeInsets.all(15),
                     child: Text(
@@ -90,12 +112,19 @@ class _HomeState extends State<Home> {
                       style: TextStyle(color: Color(0xff4286F4), fontSize: 16),
                     ),
                   ),
-                  GestureDetector(child: CardBeneficio1(),                
-                    onTap: (){
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ProfilePage()));
-      },),
-                  GestureDetector(child: CardBeneficio2(), onTap: (){},)
+                  GestureDetector(
+                    child: CardBeneficio1(),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ProfilePage()));
+                    },
+                  ),
+                  GestureDetector(
+                    child: CardBeneficio2(),
+                    onTap: () {},
+                  )
                 ],
               ),
             ));
