@@ -5,6 +5,7 @@ import 'package:teste_nottest/src/screens/home/components/card_produto/card_2.da
 import 'package:teste_nottest/src/screens/home/components/card_produto/card_beneficios/card_beneficio_1.dart';
 import 'package:teste_nottest/src/screens/home/components/card_produto/card_beneficios/card_beneficio_2.dart';
 import 'package:teste_nottest/src/screens/home/components/information.dart';
+import 'package:teste_nottest/src/screens/home/components/profile.dart';
 import 'package:teste_nottest/src/screens/home/components/rewards.dart';
 
 class Home extends StatefulWidget {
@@ -82,7 +83,11 @@ class _HomeState extends State<Home> {
                       style: TextStyle(color: Color(0xff4286F4), fontSize: 16),
                     ),
                   ),
-                  GestureDetector(child: CardBeneficio1(), onTap: (){},),
+                  GestureDetector(child: CardBeneficio1(),                
+                    onTap: (){
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ProfilePage()));
+      },),
                   GestureDetector(child: CardBeneficio2(), onTap: (){},)
                 ],
               ),
@@ -111,7 +116,7 @@ class _HomeState extends State<Home> {
                   Column(
                     children: <Widget>[
                       Text(
-                        "Seja bem-vindo, João.",
+                        "Seja bem-vindo, Caio.",
                         style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
                       Text(
