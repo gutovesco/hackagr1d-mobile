@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:teste_nottest/src/screens/consultar_dados_cpf/consultar_cpf.dart';
+import 'package:teste_nottest/src/screens/consultar_dados_placa/consultar_placa.dart';
 import 'package:teste_nottest/src/screens/home/components/card_produto/card_1.dart';
 import 'package:teste_nottest/src/screens/home/components/card_produto/card_2.dart';
 import 'package:teste_nottest/src/screens/home/components/card_produto/card_beneficios/card_beneficio_1.dart';
@@ -46,6 +47,10 @@ class _HomeState extends State<Home> {
           if(index == 2){
             Navigator.push(
             context, MaterialPageRoute(builder: (context) => ConsultarCPF()));
+          }
+          if(index == 0){
+            Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ConsultarPlaca()));
           }
         },
       ),
