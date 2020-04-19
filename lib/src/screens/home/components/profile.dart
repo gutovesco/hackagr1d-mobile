@@ -152,7 +152,7 @@ class MapScreenState extends State<ProfilePage>
                               new Flexible(
                                 child: new TextField(
                                   decoration: const InputDecoration(
-                                    hintText: "João Silva",
+                                    hintText: "Caio Silva",
                                   ),
                                   enabled: !_status,
                                   autofocus: !_status,
@@ -190,7 +190,7 @@ class MapScreenState extends State<ProfilePage>
                               new Flexible(
                                 child: new TextField(
                                   decoration: const InputDecoration(
-                                      hintText: "joao.silva.grid@gmail.com"),
+                                      hintText: "Caio.silva.grid@gmail.com"),
                                   enabled: !_status,
                                 ),
                               ),

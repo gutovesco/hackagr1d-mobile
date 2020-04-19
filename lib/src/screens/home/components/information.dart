@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+Color palleteLightBlue = Color(0xff4286F4);
+
 class InformationPage extends StatefulWidget {
   InformationPage({Key key}) : super(key: key);
 
@@ -72,7 +74,7 @@ class _InformationPageState extends State<InformationPage>
                     padding: EdgeInsets.only(top: 35.0),
                   ),
                   Center(
-                    child: Text('Benefícios do \n seguro de residência',
+                    child: Text('Benefícios do \n seguro residencial',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'Rubik',
@@ -188,7 +190,7 @@ class _InformationPageState extends State<InformationPage>
                               Icons.check,
                               color: Colors.green,
                             ),
-                            hintText: "Pode queimar sua casa",
+                            hintText: "Descontos especiais",
                             hintStyle: TextStyle(
                                 fontFamily: "Rubik", fontSize: 16.0, color: Colors.black),
                           ),
@@ -209,7 +211,7 @@ class _InformationPageState extends State<InformationPage>
                               Icons.check,
                               color: Colors.green,
                             ),
-                            hintText: "Compra outra casa",
+                            hintText: "Cobertura contra roubo e furto",
                             hintStyle: TextStyle(
                                 fontFamily: "Rubik", fontSize: 16.0, color: Colors.black),
                           ),
@@ -230,7 +232,7 @@ class _InformationPageState extends State<InformationPage>
                               Icons.check,
                               color: Colors.green,
                             ),
-                            hintText: "Se livra da imobiliária",
+                            hintText: "Danos cobridos pelo seguro",
                             hintStyle: TextStyle(
                                 fontFamily: "Rubik", fontSize: 16.0, color: Colors.black),
                           ),
@@ -244,7 +246,7 @@ class _InformationPageState extends State<InformationPage>
           ),
                   SizedBox(height: 30),
                   Center(
-                  child: Text('Quem NÃO possui \n seguro de residência',
+                  child: Text('Quem NÃO possui \n seguro residencial',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: 'Rubik',
@@ -285,7 +287,7 @@ class _InformationPageState extends State<InformationPage>
                               Icons.close,
                               color: Colors.red,
                             ),
-                            hintText: "Não pode queimar sua casa",
+                            hintText: "Preço unico",
                             hintStyle: TextStyle(
                                 fontFamily: "Rubik", fontSize: 16.0, color: Colors.black),
                           ),
@@ -306,7 +308,7 @@ class _InformationPageState extends State<InformationPage>
                               Icons.close,
                               color: Colors.red,
                             ),
-                            hintText: "Não pode comprar outra",
+                            hintText: "Casa vulnerável a roubo e furto",
                             hintStyle: TextStyle(
                                 fontFamily: "Rubik", fontSize: 16.0, color: Colors.black),
                           ),
@@ -327,7 +329,7 @@ class _InformationPageState extends State<InformationPage>
                               Icons.close,
                               color: Colors.red,
                             ),
-                            hintText: "Não se libra da imobiliaria",
+                            hintText: "Não recebe apoio",
                             hintStyle: TextStyle(
                                 fontFamily: "Rubik", fontSize: 16.0, color: Colors.black),
                           ),
@@ -339,6 +341,28 @@ class _InformationPageState extends State<InformationPage>
               ),
             ],
           ),
+          SizedBox(height: 30),
+          Container(
+            height: 50,
+            width: 300,
+                            child: Center(
+                          child: Padding(
+                           padding: EdgeInsets.fromLTRB(0, 0, 10, 0 ),
+                          child:
+                          FlatButton(
+                          color: Colors.green,
+                          onPressed: () {}, 
+                          child: Text(
+                            'Contratar',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: Colors.white, fontFamily: 'Rubik', fontSize: 18),
+                            )
+                          )
+                          )
+                              
+                            )
+                          ),
+                          SizedBox(height: 40),
         ]
       ),
       ),
