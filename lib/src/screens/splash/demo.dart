@@ -22,7 +22,7 @@ class _GooeyEdgeDemoState extends State<GooeyEdgeDemo> {
           ContentCard(
             color: 'Red',
             altColor: Color(0xFF4259B2),
-            title: "Diversas opções de planos e pacotes! Nós possuímos Seguro Auto, Seguro Residencial e Seguro de vida",
+            title: "Diversas opções de planos e pacotes! Como Seguro Auto, Seguro Residencial e Seguro de vida",
             subtitle: '',
           ),
           ContentCard(
@@ -35,7 +35,7 @@ class _GooeyEdgeDemoState extends State<GooeyEdgeDemo> {
           ContentCard(
             color: 'Blue',
             altColor: Color(0xFFFFB138),
-            title: "Uma vez contratado pela plataforma, você segue pontuando com a gente e acumula cada vez mais pontos por eventos como pagamentos em dia, renovação do seguro e não ocorrência de sinistros.",
+            title: "Dentro da plataforma você segue pontuando caso mantenha os pagamentos em dia, renove o seguro e não ocorra nenhum sinistro.",
             subtitle:
             '',
           ),
