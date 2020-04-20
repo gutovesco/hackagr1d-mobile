@@ -1,16 +1,29 @@
-# teste_nottest
+# FindSeguros
 
-A new Flutter project.
+Seu seguro, na medida certa e sempre com você.
 
-## Getting Started
+## Sobre
 
-This project is a starting point for a Flutter application.
+Projeto realizado para o Hackagr1d Pocket 2020.
 
-A few resources to get you started if this is your first Flutter project:
+O FindSeguros é a solução que entrega inteligência e tangibilidade no processo de comercialização e contratação de seguros, por meio de promoções qualificadas para os diferentes perfis e benefícios exclusivos.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+URL: https://findsegurosweb.web.app/#/ 
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Versão Web: https://github.com/KyleKun/findseguros-web
+
+- [Página na Product Hunt](https://www.producthunt.com/posts/findseguros) 
+- [Pitch](https://www.youtube.com/watch?v=BS_XdA3J23s)
+
+
+## Telas
+- Landing Page
+![alt text](https://github.com/kylekun/findseguros-web/blob/master/images/landing-page.PNG)
+
+
+- Menu principal
+![alt text](https://github.com/kylekun/findseguros-web/blob/master/images/main-page.PNG)
+
+
+- Pacotes de seguros
+![alt text](https://github.com/kylekun/findseguros-web/blob/master/images/final-page.PNG)
