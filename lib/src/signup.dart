@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:teste_nottest/src/loginPage.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:teste_nottest/src/screens/splash/demo.dart';
+import 'package:teste_nottest/src/screens/splash/splash.dart';
 
 class SignUpPage extends StatefulWidget {
   SignUpPage({Key key, this.title}) : super(key: key);
@@ -71,19 +73,28 @@ class _SignUpPageState extends State<SignUpPage> {
 
   Widget _submitButton() {
               
-    return Container(
-      width: MediaQuery.of(context).size.width / 1.3,
-      padding: EdgeInsets.symmetric(vertical: 15),
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(5)),
-          gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [Color(0xffFFFFFF), Color(0xffFFFFFF)])),
-      child: Text(
-        'Registrar',
-        style: TextStyle(fontSize: 20, color: Colors.black),
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                new GooeyEdgeDemo()));
+      },
+          child: Container(
+        width: MediaQuery.of(context).size.width / 1.3,
+        padding: EdgeInsets.symmetric(vertical: 15),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+            gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [Color(0xffFFFFFF), Color(0xffFFFFFF)])),
+        child: Text(
+          'Registrar',
+          style: TextStyle(fontSize: 20, color: Colors.black),
+        ),
       ),
     );
   }
@@ -118,6 +129,7 @@ class _SignUpPageState extends State<SignUpPage> {
       children: <Widget>[
         _entryField("Usuário"),
         _entryField("Email"),
+        _entryField("Cpf"),
         _entryField("Senha", isPassword: true),
       ],
       )
@@ -127,84 +139,86 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-            height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(5)),
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                      color: Colors.grey.shade200,
-                      offset: Offset(2, 4),
-                      blurRadius: 5,
-                      spreadRadius: 2)
-                ],
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [Color(0xff7FA4F7), Color(0xff4286F4)])),
-            child: Stack(
-              children: <Widget>[
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Expanded(
-                        flex: 3,
-                        child: SizedBox(),
-                      ),
-                      _title(),
-                      SizedBox(
-                        height: 60,
-                      ),
-                      _emailPasswordWidget(),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      _submitButton(),
-                      Container(
-      margin: EdgeInsets.symmetric(vertical: 20),
-      alignment: Alignment.bottomCenter,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            'Já possui conta ?',
-            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Color(0xffFFFFFF)),
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          InkWell(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LoginPage()));
-            },
-            child: Text(
-              'Entrar',
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600),
+      body: Container(
+              child: SingleChildScrollView(
+          child: Container(
+              height: MediaQuery.of(context).size.height,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                        color: Colors.grey.shade200,
+                        offset: Offset(2, 4),
+                        blurRadius: 5,
+                        spreadRadius: 2)
+                  ],
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [Color(0xff7FA4F7), Color(0xff4286F4)])),
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                          flex: 3,
+                          child: SizedBox(),
+                        ),
+                        _title(),
+                        SizedBox(
+                          height: 60,
+                        ),
+                        _emailPasswordWidget(),
+                        SizedBox(
+                          height: 40,
+                        ),
+                        _submitButton(),
+                        Container(
+        margin: EdgeInsets.symmetric(vertical: 20),
+        alignment: Alignment.bottomCenter,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Já possui conta ?',
+              style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Color(0xffFFFFFF)),
             ),
-          )
-        ],
-      ),
+            SizedBox(
+              width: 10,
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginPage()));
+              },
+              child: Text(
+                'Entrar',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600),
+              ),
+            )
+          ],
+        ),
   ),
-                      Expanded(
-                        flex: 2,
-                        child: SizedBox(),
-                      ),
-                    ],
+                        Expanded(
+                          flex: 2,
+                          child: SizedBox(),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                Positioned(top: 40, left: 0, child: _backButton()),
-              ],
-            ),
-          )
-        )
+                  Positioned(top: 40, left: 0, child: _backButton()),
+                ],
+              ),
+            )
+          ),
+      )
       );
   }
 }
