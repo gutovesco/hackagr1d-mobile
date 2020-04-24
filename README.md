@@ -6,6 +6,8 @@ Seu seguro, na medida certa e sempre com você.
 
 Projeto realizado para o Hackagr1d Pocket 2020.
 
+Classificado em 7º Lugar: https://hackagr1d.com.br/results.html
+
 O FindSeguros é a solução que entrega inteligência e tangibilidade no processo de comercialização e contratação de seguros, por meio de promoções qualificadas para os diferentes perfis e benefícios exclusivos.
 
 URL: https://findsegurosweb.web.app/#/ 
